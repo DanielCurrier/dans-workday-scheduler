@@ -13,5 +13,19 @@ $("#clearFieldsBtn").click((event) => {
     localStorage.clear();
 });
 
+$(".time-div").each(function () {
+    const timeDiv = $(this).attr("id").split("-")[1];
+
+    if (currentTime === timeDiv) {
+        $(this).addClass("present");
+        $(this).children(".description").addClass("white-text");
+    } else if (currentTime < timeDiv) {
+        $(this).removeClass("present");
+        $(this).addClass("future");
+    } else if (currentTime > timeDiv) {
+        $(this).removeClass("future");
+        $(this).addClass("past");
+    }
+});
 
 
